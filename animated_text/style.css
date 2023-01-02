@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  --c1: #fff;
+  --c2: #7f3dc0;
+  --gradient: linear-gradient(
+    to right top,
+    #090c10,
+    #080c11,
+    #060b11,
+    #050b12,
+    #030a12
+  );
+  /* --sizeText: 40px;
+  --heightText: 70px; */
+  --sizeText: clamp(1.25rem, 7vw, 2.5rem);
+  --heightText: clamp(3.125rem, 12vw, 4.375rem);
+  --lengthText: 6;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: var(--gradient);
+  overflow: hidden;
+}
+
+.main {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.footer {
+  padding: 1rem;
+  font-size: 1rem;
+  text-align: center;
+  color: #fff;
+}
+
+.footer a {
+  color: yellow;
+  text-decoration: none;
+}
+
+.footer a:hover,
+.footer a:focus {
+  outline: none;
+  color: #585806;
+  text-decoration: underline;
+}
+
+.title {
+  font-size: clamp(1.75rem, 10vw, 3rem);
+  margin-bottom: clamp(1.75rem, 10vw, 3rem);
+
+  color: var(--c1);
+  text-align: center;
+}
+
+/* Animated Text */
+.animatedText {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.animatedText .staticText {
+  color: var(--c1);
+  font-size: var(--sizeText);
+  font-weight: 400;
+}
+.animatedText .dynamicTexts {
+  margin-left: 1rem;
+  height: var(--heightText);
+  line-height: var(--heightText);
+  overflow: hidden;
+}
+.dynamicTexts li {
+  list-style: none;
+  color: var(--c2);
+  font-size: var(--sizeText);
+  font-weight: bold;
+  position: relative;
+  top: 0;
+  animation: slide 5s steps(var(--lengthText)) infinite;
+}
+@keyframes slide {
+  100% {
+    top: calc(var(--heightText) * var(--lengthText) * -1);
+  }
+}
+.dynamicTexts li span {
+  position: relative;
+  margin: 0.3rem 0;
+  line-height: var(--heightText);
+}
+
+@media (min-width: 52rem) {
+  .dynamicTexts li {
+    text-align: left;
+    font-weight: 500;
+  }
+}
