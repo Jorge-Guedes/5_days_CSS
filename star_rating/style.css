@@ -1,0 +1,116 @@
+/* DEFAULT */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  --c1: #fff;
+  --c2: #7f3dc0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: linear-gradient(
+    to right top,
+    #090c10,
+    #080c11,
+    #060b11,
+    #050b12,
+    #030a12
+  );
+}
+
+.main {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.footer {
+  padding: 1rem;
+  font-size: 1rem;
+  text-align: center;
+  color: #fff;
+}
+
+.footer a {
+  color: yellow;
+  text-decoration: none;
+}
+
+.footer a:hover,
+.footer a:focus {
+  outline: none;
+  color: #585806;
+  text-decoration: underline;
+}
+
+.title {
+  font-size: clamp(1.75rem, 10vw, 3rem);
+  margin-bottom: clamp(1.75rem, 10vw, 3rem);
+
+  color: var(--c1);
+  text-align: center;
+}
+
+.desc {
+  font-size: 1rem;
+  margin-bottom: 1.75rem;
+  color: var(--c2);
+}
+
+/* STAR */
+.star_container .rating {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.star_container .rating input {
+  position: relative;
+  width: 45px;
+  width: clamp(35px, 8vw, 45px);
+  height: 40px;
+  height: clamp(30px, 5vw, 40px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  overflow: hidden;
+}
+
+.star_container .rating input::before {
+  content: "\f005";
+  position: absolute;
+  font-family: fontAwesome;
+  font-size: 35px;
+  font-size: clamp(25px, 5vw, 35px);
+  position: absolute;
+  left: 4px;
+  color: #ddd;
+  transition: 0.5s;
+}
+
+.star_container .rating input:nth-child(2n + 1)::before {
+  right: 4px;
+  left: initial;
+}
+
+.star_container .rating input:hover ~ input::before,
+.star_container .rating input:hover::before,
+.star_container .rating input:checked ~ input::before,
+.star_container .rating input:checked::before {
+  color: yellow;
+}
